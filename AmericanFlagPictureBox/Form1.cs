@@ -15,7 +15,8 @@ namespace AmericanFlagPictureBox
         public Form1()
         {            
             InitializeComponent();
-            Load += Form1_Load;
+            Load += Form1_Load; //Load even handler - occurs before 
+            //form loads for the first time
         }      
 
         private void Form1_Load(object sender, EventArgs e)
@@ -23,13 +24,14 @@ namespace AmericanFlagPictureBox
             PictureBox pictureBox1 = new PictureBox();
             pictureBox1.Size = new Size(210, 110);
 
+            //позиционирование пикчербокса посреди клиентской области
             pictureBox1.Location =
                 new Point((ClientSize.Width / 2 - pictureBox1.Width / 2),
                 (ClientSize.Height / 2 - pictureBox1.Height / 2));
 
             //pictureBox1.Dock = DockStyle.Right;
 
-            this.Controls.Add(pictureBox1);
+            this.Controls.Add(pictureBox1); //добавление в контейнер (форму)
 
             Bitmap flag = new Bitmap(200, 100);
             Graphics flagGraphics = Graphics.FromImage(flag);
